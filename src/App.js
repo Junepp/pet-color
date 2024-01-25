@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+
 const ImageUpload = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [previewImage, setPreviewImage] = useState(null);
@@ -48,10 +49,24 @@ const ImageUpload = () => {
   };
 
   return (
-    <main style={{ textAlign: 'center', margin: 'auto', paddingTop: '50px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <input type="file" accept="image/*" onChange={handleImageChange}/>
+    <main style={{ textAlign: 'center', margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <div style={{ marginBottom: '20px'}}>
+        <h1 style={{ marginBottom: '30px'}}>반려동물 색상 추출기</h1>
+        <p>강아지 또는 고양이의 전신사진을 입력해주세요.</p>
+        <p>(저성능 aws freetier 인스턴스를 사용해서 응답시간 3-5초가량 소요)</p>
+        <p>
+          made by&nbsp;
+          <a href="https://github.com/Junepp" target="_blank" rel="noopener noreferrer">ryanheart</a>
+        </p>
+        <hr className="hrcss"></hr>
+      </div>
 
-      <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: '20px' }}>
+      <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+        <input type="file" accept="image/*" onChange={handleImageChange}/>
+        <button onClick={handleApiCall} style={{marginLeft: '20px'}}>업로드</button>
+      </div>
+
+      <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
         {previewImage && (
           <div style={{ marginRight: '20px' }}>
             <h2>Preview:</h2>
@@ -67,10 +82,8 @@ const ImageUpload = () => {
         )}
       </div>
 
-      <button onClick={handleApiCall} style={{ marginTop: '20px' }}>Upload Image</button>
-
       {apiResponse && (
-        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', marginTop: '20px' }}>
+        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', marginTop: '20px', marginBottom: '20px' }}>
           <div>
             <h2>Extracted Colors:</h2>
             <div>
