@@ -34,7 +34,7 @@ const ImageUpload = () => {
       const formData = new FormData();
       formData.append('file', selectedImage);
 
-      const response = await axios.post('http://15.164.224.151:9797/upload', formData, {
+      const response = await axios.post('https://pet-color-api.com/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
