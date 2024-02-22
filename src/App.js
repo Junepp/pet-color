@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, Component } from 'react';
 import axios from 'axios';
 
+import "./App.css";
+import Nav from "./Nav/Nav";
+// import Intro from "./Intro/Intro";
 
 const ImageUpload = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -50,6 +53,10 @@ const ImageUpload = () => {
 
   return (
     <main style={{ textAlign: 'center', margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <div>
+        <Nav />
+      </div>
+
       <div style={{ marginBottom: '20px'}}>
         <h1 style={{ marginBottom: '30px'}}>반려동물 색상 추출기</h1>
         <p>강아지 또는 고양이의 전신사진을 입력해주세요.</p>
